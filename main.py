@@ -4,47 +4,56 @@ import pathlib
 
 #Tasks:
 '''
-1- read files from a folder. #done
-2- detect the files type (.pdf .jpg) 
-3- sort the files 
+1- finish the full file path. done
+2- move the file to another folder. done
+3- move the file to another folder after creating a new folder.
+4- make a folder for .text then check if it exists then move the .text file to the new folder(directory)
+
 '''
 #where files live.
-folder_path = "/home/milad/Desktop/filetest" 
+main_folder = "/home/milad/Desktop/filetest" 
+image_folder = "/home/milad/Desktop/testimage"
+documents_folder = "/home/milad/Desktop/documentstest"
 
-
-
-#read files from a folder 
-print("files in folder (filetest) :\n")
-
-files_in_folder = os.listdir("/home/milad/Desktop/filetest")
-#print(files_in_folder)
-#print(type(files_in_folder)) #list
-
-#sorting..
+#sort files
 images=[]
 pdfs=[]
 
-counter=1
-for file in files_in_folder:
+files_in_folder = os.listdir("/home/milad/Desktop/filetest")
 
-    print("file No[",counter,"]: ",file)
+if len(files_in_folder) > 0:
+    counter = 1
 
-    file_name , extension = os.path.splitext(file)
-    print(file_name + " => " + extension + "\n") #split the file name and the extension..
+    for file in files_in_folder:
+        print("file No[",counter,"]: ",file)
+
+        file_name , extension = os.path.splitext(file)
+        print(file_name + " => " + extension + "\n") #split the file name and the extension..
     
-    if (extension == ".jpg"):
-        images.append(file)
-        script_path = os.path.join(folder_path , file)
-        print(script_path)
-        #shutil.move("/home/milad/Desktop/filetest", "/home/milad/Desktop/testimage")
-    
-    elif (extension == ".pdf"):
-        pdfs.append(file)
+        if (extension == ".jpg"):
+            images.append(file)
+            script_path = os.path.join(main_folder , file) 
+            #print(script_path) all good
 
-    elif (extension == ""):
-        continue
+            shutil.move(script_path, image_folder)
+            print("The file has been moved to testimage folder \n")
 
-    counter+=1
+        elif (extension == ".pdf"):
+            pdfs.append(file)
+
+            script_path = os.path.join(main_folder,file)
+            shutil.move(script_path, documents_folder)
+            print("The file has been moved to documentsfolder folder \n")
+
+        #on hold...
+        elif (extension == ""):
+            continue
+
+        counter+=1
+
+else:
+    print("no files were found in main folder.")
+
 
 for item in images:
     print("all images in the folder: " , item)
