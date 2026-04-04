@@ -1,62 +1,66 @@
 import os
 import shutil
 import pathlib
+import Validate
+from folders import * 
 
 #Tasks:
 '''
-1- finish the full file path. done
-2- move the file to another folder. done
-3- move the file to another folder after creating a new folder.
-4- make a folder for .text then check if it exists then move the .text file to the new folder(directory)
-
+1- fix the validation done
 '''
-#where files live.
-main_folder = "/home/milad/Desktop/filetest" 
-image_folder = "/home/milad/Desktop/testimage"
-documents_folder = "/home/milad/Desktop/documentstest"
+class Main(Main_Folders):
 
-#sort files
-images=[]
-pdfs=[]
+    print("current files in folder: ")
+    folder_length= len(os.listdir(Main_Folders.main_folder))
+    list= os.listdir(Main_Folders.main_folder)
 
-files_in_folder = os.listdir("/home/milad/Desktop/filetest")
+    if folder_length > 0:
+        counter = 1
 
-if len(files_in_folder) > 0:
-    counter = 1
+        for file in list:
 
-    for file in files_in_folder:
-        print("file No[",counter,"]: ",file)
+            print("file No[",counter,"]: ",file)
 
-        file_name , extension = os.path.splitext(file)
-        print(file_name + " => " + extension + "\n") #split the file name and the extension..
-    
-        if (extension == ".jpg"):
-            images.append(file)
-            script_path = os.path.join(main_folder , file) 
-            #print(script_path) all good
+            file_name , extension = os.path.splitext(file)
+            #print(file_name + " => " + extension + "\n") #split the file name and the extension..
+            counter+=1
+        
+            # IMAGES
+            if (extension == ".jpg"):
+                print("file type: Image." )
+                print("Extension: " + extension + "\n")
 
-            shutil.move(script_path, image_folder)
-            print("The file has been moved to testimage folder \n")
-
-        elif (extension == ".pdf"):
-            pdfs.append(file)
-
-            script_path = os.path.join(main_folder,file)
-            shutil.move(script_path, documents_folder)
-            print("The file has been moved to documentsfolder folder \n")
-
-        #on hold...
-        elif (extension == ""):
-            continue
-
-        counter+=1
-
-else:
-    print("no files were found in main folder.")
+                script_path = os.path.join(Main_Folders.main_folder , file) #got the script full path #/home/milad/Desktop/filetest/unnamed.jpg
+                Validate.Validation.check_folders("image")
+                shutil.move(script_path, Main_Folders.image_folder) #move the script to image folder
+                Validate.Validation.validate_transfer("images",file) #file : unnamed.jpg
 
 
-for item in images:
-    print("all images in the folder: " , item)
+            # DOCUMENTS
+            elif (extension == ".pdf"):
+                print("file type: PDF." )
+                print("Extension: " + extension +"\n")
 
-for item in pdfs:
-    print("all pdf in the folder: " ,item)
+                script_path = os.path.join(Main_Folders.main_folder,file) #getting the full path of the file to this variable
+                Validate.Validation.check_folders("document")
+                shutil.move(script_path, Main_Folders.documents_folder)   #move the script to the new existing folder
+                Validate.Validation.validate_transfer("pdfs",file) #file : unnamed.jpg
+
+
+            # TEXTS
+            elif (extension == ".txt"):
+                print("file type: TEXT." )
+                print("Extension: " + extension +"\n")
+
+                script_path = os.path.join(Main_Folders.main_folder,file) #getting the full path of the file to this variable
+                Validate.Validation.check_folders("text")
+                shutil.move(script_path, Main_Folders.text_folder)   #move the script to the new existing folder
+                Validate.Validation.validate_transfer("texts",file) #file : unnamed.jpg
+
+            #on hold...
+            elif (extension == ""):
+                continue
+
+
+    else:
+        print("no files were found in main folder.")
