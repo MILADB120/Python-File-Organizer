@@ -6,7 +6,7 @@ from folders import *
 
 class Main(Main_Folders):
 
-    def run_organizer(self):
+    def run_organizer():
 
 
         print("current files in folder: ")
@@ -63,5 +63,5 @@ class Main(Main_Folders):
         else:
             print("no files were found in main folder.")
 
-main=Main()
-main.run_organizer()
+#main=Main()
+#main.run_organizer()
