@@ -5,7 +5,7 @@ from folders import *
 
 class Validation(Main_Folders):
 
-    def check_folders(script_type):  #check if the folder exists... if not make one 
+    def check_folders(script_type):  #check if the folder exists... if not make one
         if script_type == "document" :
 
             if(not os.path.exists(Main_Folders.documents_folder)):

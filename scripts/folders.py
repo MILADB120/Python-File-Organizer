@@ -5,3 +5,5 @@ class Main_Folders():
     image_folder = "/home/milad/Desktop/filetest/imagetest"
     documents_folder = "/home/milad/Desktop/filetest/documentstest"
     text_folder = "/home/milad/Desktop/filetest/texttest"
+
+    
