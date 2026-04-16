@@ -1,8 +1,6 @@
 import os
 import shutil
-import pathlib
 import Validate
-from folders import * 
 
 def folder(user_folder):
         global main_folder
