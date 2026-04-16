@@ -40,7 +40,6 @@ button_start = tk.Button(btn_frame, text="Organize" ,command=lambda:[folder(user
 button_start.grid(row=2 , column=0 , padx=0 ,pady=5)
 
 #label
-label=tk.Label(btn_frame,text="") .grid(row=2 , column=1)
 
 
 root.mainloop()
