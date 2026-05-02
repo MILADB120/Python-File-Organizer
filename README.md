@@ -27,9 +27,6 @@ A Python-based desktop application designed to declutter directories by automati
     python3 scripts/gui.py
     ```
 
-## 📸 Preview
-As shown in **image_514eb5.jpg**, the application features a clean window titled "Automated File Organizer Pro Plus" with a central welcoming label and organized grid layout.
-
 ## 🧑‍💻 Author
 **Milad**
 *   First-year IT Student at Syrian Virtual University (SVU)
