@@ -1,10 +1,39 @@
-# Python File Organizer
+# Automated File Organizer
 
-## Goal
-Build a script that organizes files by type.
+A Python-based desktop application designed to declutter directories by automatically categorizing files based on their extensions. This project has evolved from a terminal-only script to a user-friendly Graphical User Interface (GUI) application.
 
-## Planned steps
-- Read files from a folder
-- Detect file extensions
-- Move files into folders (Images, Documents, Videos)
-- turn the project to GUI (tkinter)
+## 🚀 Features
+*   **GUI Interface**: Built with Tkinter for an intuitive user experience.
+*   **Smart Categorization**: Automatically sorts documents, images, and media into dedicated folders.
+*   **File Management**: Uses Python's `os` and `shutil` libraries for efficient file handling.
+*   **Modular Code**: Built using Object-Oriented Programming (OOP) principles.
+
+## 🛠️ Built With
+*   **Language**: Python
+*   **GUI Framework**: Tkinter
+*   **Operating System**: Developed and tested on Linux Mint
+
+## 📦 Installation
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/MILADB120/Python-File-Organizer.git](https://github.com/MILADB120/Python-File-Organizer.git)
+    ```
+2.  **Navigate to the project folder:**
+    ```bash
+    cd Python-File-Organizer
+    ```
+3.  **Run the application:**
+    ```bash
+    python3 scripts/gui.py
+    ```
+
+## 📸 Preview
+As shown in **image_514eb5.jpg**, the application features a clean window titled "Automated File Organizer Pro Plus" with a central welcoming label and organized grid layout.
+
+## 🧑‍💻 Author
+**Milad**
+*   First-year IT Student at Syrian Virtual University (SVU)
+*   Aspiring Python and C# Developer
+
+## 📜 License
+This project is licensed under the MIT License - see the LICENSE file for details.
