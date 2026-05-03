@@ -1,15 +1,14 @@
 import os
-from folders import *
-#from main import Main
+from main import *
 
 
-class Validation(Main_Folders):
+class Validation():
 
-    def check_folders(script_type):  #check if the folder exists... if not make one 
+    def check_folders(script_type,dir_folder):  #check if the folder exists... if not make one
         if script_type == "document" :
 
-            if(not os.path.exists(Main_Folders.documents_folder)):
-                os.makedirs(Main_Folders.documents_folder ,exist_ok=True)
+            if(not os.path.exists(dir_folder)):
+                os.makedirs(dir_folder ,exist_ok=True)
                 print("The Documents folder was created.")
 
             else :
@@ -17,8 +16,8 @@ class Validation(Main_Folders):
         
         elif script_type == "image" :
              
-            if(not os.path.exists(Main_Folders.image_folder)):
-                os.makedirs(Main_Folders.image_folder ,exist_ok=True)
+            if(not os.path.exists(dir_folder)):
+                os.makedirs(dir_folder ,exist_ok=True)
                 print("The Images folder was created.")
 
             else :
@@ -27,8 +26,8 @@ class Validation(Main_Folders):
 
         elif script_type == "text" :
 
-            if(not os.path.exists(Main_Folders.text_folder)):
-                os.makedirs(Main_Folders.text_folder ,exist_ok=True)
+            if(not os.path.exists(dir_folder)):
+                os.makedirs(dir_folder ,exist_ok=True)
                 print("The Images folder was created.")
 
             else :
@@ -36,11 +35,11 @@ class Validation(Main_Folders):
 
             
 
-    def validate_transfer(folder, file_name): #testing for images
+    def validate_transfer(folder, file_name, check): #testing for images
 
         if folder == "images":
 
-            new_path = os.path.join(Main_Folders.image_folder,file_name  ) #get the new path were the image should be now
+            new_path = os.path.join(check,file_name  ) #get the new path were the image should be now
 
             if os.path.exists(new_path) :
                 print("the script has been moved successfully.\n")
@@ -50,7 +49,7 @@ class Validation(Main_Folders):
         
         if folder == "pdfs":
 
-            new_path = os.path.join(Main_Folders.documents_folder,file_name  ) #get the new path were the image should be now
+            new_path = os.path.join(check,file_name  ) #get the new path were the image should be now
 
             if os.path.exists(new_path) :
                 print("the script has been moved successfully.\n")
@@ -60,7 +59,7 @@ class Validation(Main_Folders):
 
         if folder == "texts":
 
-            new_path = os.path.join(Main_Folders.text_folder,file_name  ) #get the new path were the image should be now
+            new_path = os.path.join(check,file_name  ) #get the new path were the image should be now
 
             if os.path.exists(new_path) :
                 print("the script has been moved successfully.\n")
